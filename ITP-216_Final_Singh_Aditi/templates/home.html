@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Spotify Wrapped</title>
+    </head>
+
+    <body>
+
+        <h1> Welcome Aditi! </h1>
+        <p> &emsp; The total number of minutes of music you've listened to on Spotify this past year is: <b> {{ numminutes }}</b>. </p>
+        <p> &emsp; Your most frequently streamed song is <b> {{ songname }} </b> by <b> {{ artistname }} </b> which you played <b> {{ songplayed }} </b> times! </p>
+        <br>
+
+        <p> &emsp; 1) Select what you'd like to visualize:</p>
+        <form action="/viz" method="POST">
+            <div> &emsp;
+              <input type="radio" id = "songs" name="mins" value="songs">
+              <label for="songs"> Total minutes played of your top 10 streamed songs </label>
+            </div>
+            <div> &emsp;
+              <input type="radio" id = "artists" name="mins" value="artists">
+              <label for="artists"> Total minutes played of your top 10 streamed artists </label>
+            </div>
+            <br>
+            &emsp; <input type="submit" value="Enter">
+        </form>
+        <br>
+
+        <p> &emsp; 2) Enter the total number of minutes spent playing an artist's music and predict how popular their music is for you: </p>
+        <form action="/predict" method="POST"> &emsp;
+            <input type="min" name="min" placeholder="Minutes">
+            <input type="submit" value="Enter">
+        </form>
+        <br>
+
+        <p> &emsp; 3) Other statistics: </p>
+        <p> &emsp; &emsp; Enter month to see min, max, and average of minutes streamed per song and total minutes streamed for that month: </p>
+        <form action="/month" method="POST"> &emsp; &emsp;
+            <input type="month" name="month" placeholder="Month" min="2020-11" max="2021-11">
+            <input type="submit" value="Enter">
+        </form>
+
+    </body>
+</html>
